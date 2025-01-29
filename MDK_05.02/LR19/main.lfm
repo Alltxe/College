@@ -1,0 +1,244 @@
+object Form1: TForm1
+  Left = 499
+  Height = 256
+  Top = 195
+  Width = 330
+  AutoSize = True
+  BorderStyle = bsSingle
+  Caption = 'Калькулятор'
+  ClientHeight = 256
+  ClientWidth = 330
+  Color = clGray
+  DesignTimePPI = 120
+  Font.CharSet = ANSI_CHARSET
+  Font.Name = 'Showcard Gothic'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  LCLVersion = '3.2.0.0'
+  object calc_field: TEdit
+    Left = 21
+    Height = 26
+    Top = 16
+    Width = 291
+    Alignment = taRightJustify
+    Color = clWhite
+    Enabled = False
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Name = 'Showcard Gothic'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 0
+  end
+  object back: TButton
+    Left = 24
+    Height = 31
+    Top = 56
+    Width = 110
+    Caption = '< -'
+    Color = clForm
+    Font.CharSet = ANSI_CHARSET
+    Font.Name = 'Showcard Gothic'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 1
+    OnClick = backClick
+  end
+  object ce: TButton
+    Left = 144
+    Height = 31
+    Top = 56
+    Width = 50
+    Caption = 'ce'
+    TabOrder = 2
+    OnClick = ceClick
+  end
+  object clr: TButton
+    Left = 200
+    Height = 31
+    Top = 56
+    Width = 49
+    Caption = 'clr'
+    TabOrder = 3
+    OnClick = clrClick
+  end
+  object btn_sqrt: TButton
+    Left = 256
+    Height = 31
+    Top = 56
+    Width = 58
+    Caption = 'кор'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -17
+    Font.Name = 'Showcard Gothic'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 4
+    OnClick = btn_sqrtClick
+  end
+  object b7: TButton
+    Left = 24
+    Height = 31
+    Top = 96
+    Width = 50
+    Caption = '7'
+    TabOrder = 5
+    OnClick = Click
+  end
+  object b8: TButton
+    Left = 84
+    Height = 31
+    Top = 96
+    Width = 50
+    Caption = '8'
+    TabOrder = 6
+    OnClick = Click
+  end
+  object b9: TButton
+    Left = 144
+    Height = 31
+    Top = 96
+    Width = 50
+    Caption = '9'
+    TabOrder = 7
+    OnClick = Click
+  end
+  object b4: TButton
+    Left = 24
+    Height = 31
+    Top = 136
+    Width = 50
+    Caption = '4'
+    TabOrder = 8
+    OnClick = Click
+  end
+  object b5: TButton
+    Left = 84
+    Height = 31
+    Top = 136
+    Width = 50
+    Caption = '5'
+    TabOrder = 9
+    OnClick = Click
+  end
+  object b6: TButton
+    Left = 144
+    Height = 31
+    Top = 136
+    Width = 50
+    Caption = '6'
+    TabOrder = 10
+    OnClick = Click
+  end
+  object b1: TButton
+    Left = 24
+    Height = 31
+    Top = 176
+    Width = 50
+    Caption = '1'
+    TabOrder = 11
+    OnClick = Click
+  end
+  object b2: TButton
+    Left = 84
+    Height = 31
+    Top = 176
+    Width = 50
+    Caption = '2'
+    TabOrder = 12
+    OnClick = Click
+  end
+  object b3: TButton
+    Left = 144
+    Height = 31
+    Top = 176
+    Width = 50
+    Caption = '3'
+    TabOrder = 13
+    OnClick = Click
+  end
+  object divide: TButton
+    Left = 199
+    Height = 31
+    Top = 96
+    Width = 50
+    Caption = '/'
+    TabOrder = 14
+    OnClick = ClickAction
+  end
+  object prod: TButton
+    Left = 200
+    Height = 31
+    Top = 136
+    Width = 50
+    Caption = '*'
+    TabOrder = 15
+    OnClick = ClickAction
+  end
+  object minus: TButton
+    Left = 199
+    Height = 31
+    Top = 176
+    Width = 50
+    Caption = '-'
+    TabOrder = 16
+    OnClick = minusClick
+  end
+  object plus: TButton
+    Left = 199
+    Height = 31
+    Top = 216
+    Width = 50
+    Caption = '+'
+    TabOrder = 17
+    OnClick = ClickAction
+  end
+  object dot: TButton
+    Left = 142
+    Height = 31
+    Top = 216
+    Width = 50
+    Caption = ','
+    TabOrder = 18
+    OnClick = dotClick
+  end
+  object b0: TButton
+    Left = 24
+    Height = 31
+    Top = 216
+    Width = 110
+    Caption = '0'
+    TabOrder = 19
+    OnClick = Click
+  end
+  object btn_sqr: TButton
+    Left = 256
+    Height = 31
+    Top = 96
+    Width = 58
+    Caption = 'x^2'
+    TabOrder = 20
+    OnClick = btn_sqrClick
+  end
+  object devidex: TButton
+    Left = 256
+    Height = 31
+    Top = 136
+    Width = 58
+    Caption = '1/x'
+    TabOrder = 21
+    OnClick = devidexClick
+  end
+  object equalss: TButton
+    Left = 256
+    Height = 71
+    Top = 176
+    Width = 58
+    Caption = '='
+    TabOrder = 22
+    OnClick = equalssClick
+  end
+end
