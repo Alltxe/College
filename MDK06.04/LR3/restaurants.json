@@ -1,0 +1,22 @@
+{
+  "restaurants": [
+    {
+      "name": "CafeItaly",
+      "type": "Кафе",
+      "cuisine": "Итальянская",
+      "rating": "Высокий"
+    },
+    {
+      "name": "FrenchRestaurant",
+      "type": "Ресторан",
+      "cuisine": "Французская",
+      "rating": "Средний"
+    },
+    {
+      "name": "FastEat",
+      "type": "Фастфуд",
+      "cuisine": "Русская",
+      "rating": "Низкий"
+    }
+  ]
+}
