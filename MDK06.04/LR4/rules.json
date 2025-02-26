@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Thriller_Lover",
+        "condition": "genre == 'триллер' and rating > 8.5",
+        "action": "Рекомендуем 'Острые козырьки' (2023)"
+    },
+    {
+        "name": "Platform_Check",
+        "condition": "platform == 'Netflix'",
+        "action": "Добавьте 'Игра престолов' (2011)"
+    },
+    {
+        "name": "Modern_Hits",
+        "condition": "year >= 2020 and rating > 8.0",
+        "options": [
+            {"action": "Попробуйте 'Дюна' (2021)", "weight": 0.6},
+            {"action": "Смотрите 'Война машин' (2020)", "weight": 0.4}
+        ]
+    },
+    {
+        "name": "Mood_Boost",
+        "condition": "mood == 'позитивный'",
+        "action": "Смотрите 'Миньоны' (2015)"
+    },
+    {
+        "name": "Animation_Fan",
+        "condition": "genre == 'анимация' and platform == 'Disney+'",
+        "options": [
+            {"action": "Рекомендуем 'Рататуй' (2007)", "weight": 0.5},
+            {"action": "Посмотрите 'Зверополис' (2016)", "weight": 0.5}
+        ]
+    }
+]
