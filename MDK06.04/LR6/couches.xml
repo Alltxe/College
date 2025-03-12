@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2025-01-14T15:52:27+01:00">
+    <shop>
+        <name>Пример Магазина</name>
+        <company>ООО "Шутара"</company>
+        <url>https://www.shatura.com/</url>
+        <currencies>
+            <currency id="RUR" rate="1"/>
+        </currencies>
+        <categories>
+            <category id="1">Мебель</category>
+            <category id="2" parentId="1">Кресла</category>
+            <category id="3" parentId="1">Диваны</category>
+        </categories>
+        <offers>
+            <offer id="491226" available="true">
+                <url>https://www.shatura.com/goods/groups/myagkaya_mebel/491226/</url>
+                <price>15000</price>
+                <currencyId>RUR</currencyId>
+                <categoryId>2</categoryId>
+                <picture>http://example.com/images/12345.jpg</picture>
+                <store>true</store>
+                <pickup>true</pickup>
+                <delivery>true</delivery>
+                <name>Кресло Pero с подлокотниками FIRST</name>
+                <vendor>Шатура</vendor>
+                <param name="Размер спального места">1040х1500 мм</param>
+                <param name="Стиль">Современный</param>
+                <param name="Механизм трансформации">Еврокнижка</param>
+                <param name="Каркас">Брус</param>
+                <param name="Оттенок">На выбор</param>
+                <param name="Глубина">970 мм</param>
+                <param name="Длина">1380 мм</param>
+                <param name="Высота">830 мм</param>
+                <param name="Производитель">Шатура, Россия</param>
+            </offer>
+            <offer id="491227" available="true">
+                <url>https://www.shatura.com/goods/groups/myagkaya_mebel/491227/</url>
+                <price>30000</price>
+                <currencyId>RUR</currencyId>
+                <categoryId>3</categoryId>
+                <picture>http://example.com/images/491227.jpg</picture>
+                <store>true</store>
+                <pickup>true</pickup>
+                <delivery>true</delivery>
+                <name>Диван Brioche FIRST 2-х местный с широкими подлокотниками</name>
+                <vendor>Шатура</vendor>
+                <param name="Размер спального места">2060х1510 мм</param>
+                <param name="Стиль">Современный</param>
+                <param name="Механизм трансформации">Тик-Так</param>
+                <param name="Каркас">Брус</param>
+                <param name="Оттенок">На выбор</param>
+                <param name="Глубина">1110 мм</param>
+                <param name="Длина">2060 мм</param>
+                <param name="Высота">700 мм</param>
+                <param name="Производитель">Шатура, Россия</param>
+            </offer>
+            <offer id="491228" available="true">
+                <url>https://www.shatura.com/goods/groups/myagkaya_mebel/491228/</url>
+                <price>45000</price>
+                <currencyId>RUR</currencyId>
+                <categoryId>3</categoryId>
+                <picture>http://example.com/images/491228.jpg</picture>
+                <store>true</store>
+                <pickup>true</pickup>
+                <delivery>true</delivery>
+                <name>Диван Brioche Premier угловой пр/лев с широкими подлокотниками</name>
+                <vendor>Шатура</vendor>
+                <param name="Размер спального места">2610х1985 мм</param>
+                <param name="Стиль">Современный</param>
+                <param name="Механизм трансформации">Тик-Так</param>
+                <param name="Каркас">Брус</param>
+                <param name="Оттенок">На выбор</param>
+                <param name="Глубина">1610 мм</param>
+                <param name="Длина">3170 мм</param>
+                <param name="Высота">700 мм</param>
+                <param name="Производитель">Шатура, Россия</param>
+                <param name="Расположение угла">Универсальное</param>
+            </offer>
+        </offers>
+    </shop>
+</yml_catalog>
