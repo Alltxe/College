@@ -1,0 +1,23 @@
+## Ignore build output directories
+# Project build folders
+bin/
+obj/
+**/bin/
+**/obj/
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.idea/
+
+TestResults/
+
+*.nupkg
+packages/
+
+*.log
+*.tmp
+
+.DS_Store
