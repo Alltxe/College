@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,6 +36,15 @@ public class Lab2
         if (keyA == null && keyB == null) return 0;
         if (keyA == null) return -1;
         if (keyB == null) return 1;
+
+        bool isNumA = double.TryParse(keyA, out double numA);
+        bool isNumB = double.TryParse(keyB, out double numB);
+
+        if (isNumA && isNumB)
+        {
+            return numA.CompareTo(numB);
+        }
+
         return string.Compare(keyA, keyB, StringComparison.Ordinal);
     }
 }
