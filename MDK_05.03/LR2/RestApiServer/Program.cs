@@ -17,3 +17,6 @@ app.MapControllers();
 
 app.Run();
 
+// Делаем Program доступным для тестов
+public partial class Program { }
+
