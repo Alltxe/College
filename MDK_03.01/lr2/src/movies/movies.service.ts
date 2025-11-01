@@ -5,6 +5,6 @@ import { CreateMovieDto } from './dto/create-movie.dto';
 export class MoviesService {
   create(createMovieDto: CreateMovieDto) {
     // Минимальная логика: просто возвращаем DTO для проверки
-    return createMovieDto;
+    console.log('Создание фильма:', createMovieDto);
   }
 }

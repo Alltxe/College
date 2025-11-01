@@ -22,7 +22,7 @@
         <input type="text" id="genre" required maxlength="30">
 
         <label for="rating">Рейтинг:</label>
-        <input type="text" id="rating" required maxlength="5">
+        <input type="number" id="rating" required min="0" max="10" step="0.1">
 
         <button type="submit">Создать фильм</button>
     </form>
@@ -33,16 +33,17 @@
         document.getElementById('movieForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
+            
             const data = {
                 title: formData.get('title'),
                 releaseDate: formData.get('releaseDate'),
                 price: parseFloat(formData.get('price')),
                 genre: formData.get('genre'),
-                rating: formData.get('rating')
+                rating: parseFloat(formData.get('rating'))
             };
 
             try {
-                const response = await fetch('/movies', {
+                const response = await fetch('http://localhost:3000/movies', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
