@@ -1,6 +1,0 @@
-@Proizv2_HostAddress = http://localhost:5162
-
-GET {{Proizv2_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

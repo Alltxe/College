@@ -1,0 +1,316 @@
+{
+  "id": "test_suite",
+  "version": "2.0",
+  "name": "Test Website Suite",
+  "url": "https://alltxe.github.io/College/",
+  "tests": [
+    {
+      "id": "test1",
+      "name": "Open Home Page",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/index.html",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - Home",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test2",
+      "name": "Navigate to About",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/index.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=About",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - About",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test3",
+      "name": "Check About Image",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/about.html",
+          "value": ""
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "id=aboutImage",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test4",
+      "name": "Click About Image",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/about.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "id=aboutImage",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test5",
+      "name": "Navigate to Products",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/about.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=Products",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - Products",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test6",
+      "name": "Check Products List",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/products.html",
+          "value": ""
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "linkText=Product 1",
+          "value": ""
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "linkText=Product 2",
+          "value": ""
+        },
+        {
+          "command": "assertElementPresent",
+          "target": "linkText=Product 3",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test7",
+      "name": "Navigate to Product 1",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/products.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=Product 1",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - Product 1",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test8",
+      "name": "Buy Product 1",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/product1.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "id=buyButton1",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test9",
+      "name": "Navigate to Product 2",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/products.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=Product 2",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - Product 2",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test10",
+      "name": "Buy Product 2",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/product2.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "id=buyButton2",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test11",
+      "name": "Navigate to Product 3",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/products.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=Product 3",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - Product 3",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test12",
+      "name": "Buy Product 3",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/product3.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "id=buyButton3",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test13",
+      "name": "Navigate to Contact",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/index.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=Contact",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - Contact",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test14",
+      "name": "Navigate to Feedback",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/index.html",
+          "value": ""
+        },
+        {
+          "command": "click",
+          "target": "linkText=Feedback",
+          "value": ""
+        },
+        {
+          "command": "assertTitle",
+          "target": "Test Website - Feedback",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "test15",
+      "name": "Fill and Submit Form",
+      "commands": [
+        {
+          "command": "open",
+          "target": "/form.html",
+          "value": ""
+        },
+        {
+          "command": "type",
+          "target": "id=name",
+          "value": "Test User"
+        },
+        {
+          "command": "type",
+          "target": "id=email",
+          "value": "test@example.com"
+        },
+        {
+          "command": "type",
+          "target": "id=message",
+          "value": "Test message"
+        },
+        {
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "suite1",
+      "name": "Test Suite",
+      "tests": ["test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11", "test12", "test13", "test14", "test15"]
+    }
+  ],
+  "urls": ["https://alltxe.github.io/College/"]
+}
