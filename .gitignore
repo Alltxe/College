@@ -6,3 +6,26 @@
 *.docx
 /.idea
 *.exe
+
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+env/
+.ENV/
+
+.env
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+build/
+dist/
+*.egg-info/
+.vscode/
+.idea/
