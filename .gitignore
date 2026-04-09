@@ -7,10 +7,12 @@
 /.idea
 *.exe
 
+# Python bytecode / cache
 __pycache__/
 *.py[cod]
 *$py.class
 
+venv/
 env/
 .ENV/
 
@@ -24,6 +26,5 @@ htmlcov/
 build/
 dist/
 *.egg-info/
-
 .vscode/
 .idea/
