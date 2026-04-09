@@ -1,4 +1,10 @@
+import hashlib
+
 from db.database import get_connection
+
+
+def hash_password(password: str) -> str:
+    return hashlib.sha256(password.encode()).hexdigest()
 
 
 class User:
@@ -14,7 +20,7 @@ class User:
         with get_connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
-                    "SELECT used_id, username, password, role, is_blocked, failed_attempts "
+                    "SELECT user_id, username, password, role, is_blocked, failed_attempts "
                     "FROM users WHERE username = %s",
                     (username,),
                 )
@@ -27,7 +33,7 @@ class User:
                 cur.execute(
                     "UPDATE users SET failed_attempts = failed_attempts + 1, "
                     "is_blocked = CASE WHEN failed_attempts + 1 >= 3 THEN true ELSE is_blocked END "
-                    "WHERE used_id = %s",
+                    "WHERE user_id = %s",
                     (user_id,),
                 )
                 conn.commit()
@@ -37,7 +43,17 @@ class User:
         with get_connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
-                    "UPDATE users SET failed_attempts = 0 WHERE used_id = %s", (user_id,)
+                    "UPDATE users SET failed_attempts = 0 WHERE user_id = %s", (user_id,)
+                )
+                conn.commit()
+
+    @staticmethod
+    def unblock(user_id):
+        with get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    "UPDATE users SET is_blocked = false, failed_attempts = 0 WHERE user_id = %s",
+                    (user_id,),
                 )
                 conn.commit()
 
@@ -46,8 +62,8 @@ class User:
         with get_connection() as conn:
             with conn.cursor() as cur:
                 cur.execute(
-                    "SELECT used_id, username, role, is_blocked, failed_attempts "
-                    "FROM users ORDER BY used_id"
+                    "SELECT user_id, username, role, is_blocked, failed_attempts "
+                    "FROM users ORDER BY user_id"
                 )
                 return cur.fetchall()
 
@@ -72,17 +88,24 @@ class User:
                 cur.execute(
                     "INSERT INTO users (username, password, role, is_blocked, failed_attempts) "
                     "VALUES (%s, %s, %s, %s, 0)",
-                    (username, password, role, is_blocked),
+                    (username, hash_password(password), role, is_blocked),
                 )
                 conn.commit()
 
     @staticmethod
-    def update(user_id, username, password, role, is_blocked):
+    def update(user_id, username, role, is_blocked, new_password=None):
         with get_connection() as conn:
             with conn.cursor() as cur:
-                cur.execute(
-                    "UPDATE users SET username=%s, password=%s, role=%s, "
-                    "is_blocked=%s, failed_attempts=0 WHERE used_id=%s",
-                    (username, password, role, is_blocked, user_id),
-                )
+                if new_password:
+                    cur.execute(
+                        "UPDATE users SET username=%s, password=%s, role=%s, "
+                        "is_blocked=%s, failed_attempts=0 WHERE user_id=%s",
+                        (username, hash_password(new_password), role, is_blocked, user_id),
+                    )
+                else:
+                    cur.execute(
+                        "UPDATE users SET username=%s, role=%s, "
+                        "is_blocked=%s, failed_attempts=0 WHERE user_id=%s",
+                        (username, role, is_blocked, user_id),
+                    )
                 conn.commit()

@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 from components.captcha_widget import CaptchaWidget
-from models.user import User
+from models.user import User, hash_password
 
 APP_TITLE = "ИС ООО \"Полесье\""
 
@@ -34,11 +34,20 @@ class LoginForm:
             row=2, column=1, sticky="ew", pady=4
         )
 
+        tk.Label(
+            frame,
+            text="Внимание: неверная капча также засчитывается как неудачная попытка.",
+            font=("Segoe UI", 8),
+            fg="gray",
+            wraplength=280,
+            justify="left",
+        ).grid(row=3, column=0, columnspan=2, sticky="w", pady=(4, 0))
+
         self._captcha = CaptchaWidget(frame)
-        self._captcha.grid(row=3, column=0, columnspan=2, pady=10)
+        self._captcha.grid(row=4, column=0, columnspan=2, pady=10)
 
         btn_frame = tk.Frame(frame)
-        btn_frame.grid(row=4, column=0, columnspan=2, pady=(4, 0))
+        btn_frame.grid(row=5, column=0, columnspan=2, pady=(4, 0))
 
         tk.Button(btn_frame, text="Обновить капчу", command=self._captcha.reset).pack(
             side="left", padx=4
@@ -92,7 +101,7 @@ class LoginForm:
             self._handle_failure(user_id, "Капча собрана неверно. Повторите попытку.")
             return
 
-        if password != db_password:
+        if hash_password(password) != db_password:
             self._handle_failure(
                 user_id,
                 "Вы ввели неверный логин или пароль.\nПожалуйста проверьте ещё раз введённые данные.",
@@ -117,12 +126,23 @@ class LoginForm:
 
     def _open_main(self, role: str):
         from forms.admin_form import AdminForm
+
         self._root.withdraw()
         top = tk.Toplevel()
-        top.protocol("WM_DELETE_WINDOW", self._root.destroy)
+
+        def on_logout():
+            top.destroy()
+            self._username_var.set("")
+            self._password_var.set("")
+            self._captcha.reset()
+            self._root.deiconify()
+
+        top.protocol("WM_DELETE_WINDOW", on_logout)
+
         if role == "Администратор":
-            AdminForm(top)
+            AdminForm(top, on_logout=on_logout)
         else:
             top.title(f"{APP_TITLE} — Рабочий стол")
-            top.minsize(300, 150)
-            tk.Label(top, text=f"Добро пожаловать, {self._username_var.get()}!", padx=20, pady=40).pack()
+            top.minsize(320, 180)
+            tk.Label(top, text=f"Добро пожаловать, {self._username_var.get()}!", padx=20, pady=30).pack()
+            tk.Button(top, text="Выход из учётной записи", command=on_logout).pack(pady=(0, 20))

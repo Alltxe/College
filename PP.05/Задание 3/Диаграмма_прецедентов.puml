@@ -1,0 +1,58 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+title Диаграмма прецедентов ИС "Молочный комбинат Полесье"
+
+' Актеры
+actor "Менеджер по продажам" as Sales
+actor "Технолог" as Tech
+actor "Экономист" as Econ
+actor "Начальник производства" as ProdHead
+actor "Кладовщик" as Store
+
+' Основные прецеденты (из требования)
+package "Информационная система предприятия" {
+    usecase "Управление справочниками\n" as UC_Dir
+    usecase "Работа со спецификациями\n(Рецептуры)" as UC_Spec
+    usecase "Расчет себестоимости" as UC_Cost
+    usecase "Оформление заказов" as UC_Order
+    usecase "Учет производства" as UC_Prod
+
+    ' Вспомогательные прецеденты для отношений
+    usecase "Просмотр цен материалов" as UC_ViewMatPrice
+    usecase "Просмотр спецификации" as UC_ViewSpec
+    usecase "Просмотр цен продукции" as UC_ViewProdPrice
+    usecase "Корректировка цен" as UC_EditPrice
+    usecase "Списание материалов" as UC_WriteOff
+    usecase "Создание новой спецификации" as UC_NewSpec
+}
+
+' Ассоциации актеров с прецедентами
+Sales -- UC_Order
+Tech -- UC_Spec
+Econ -- UC_Cost
+Econ -- UC_Dir
+ProdHead -- UC_Prod
+Store -- UC_Dir
+Store -- UC_Prod
+
+' Отношения Include (Обязательные зависимости)
+' Расчет себестоимости невозможен без спецификации и цен (см. Расчет стоимости продукции.md)
+UC_Cost ..> UC_ViewSpec : <<include>>
+UC_Cost ..> UC_ViewMatPrice : <<include>>
+
+' Оформление заказа требует актуальных цен (см. Заказ покупателя.md)
+UC_Order ..> UC_ViewProdPrice : <<include>>
+
+' Учет производства требует знания рецептуры (см. Производство.md и Спецификация.md)
+UC_Prod ..> UC_ViewSpec : <<include>>
+UC_Prod ..> UC_WriteOff : <<include>>
+
+' Отношения Extend (Опциональные/Расширяющие)
+' Управление справочниками может быть расширено корректировкой цен (см. Цены.md)
+UC_EditPrice .> UC_Dir : <<extend>>
+
+' Работа со спецификациями может включать создание новой (расширение базового управления)
+UC_Spec ..> UC_NewSpec: <<extend>>
+
+@enduml
